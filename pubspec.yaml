@@ -39,6 +39,7 @@ dependencies:
   flutter_lints: ^2.0.1
   equatable: ^2.0.3
   card_swiper: ^2.0.4
+  floating_bottom_navigation_bar: ^1.5.2
 
 dev_dependencies:
   flutter_test:
