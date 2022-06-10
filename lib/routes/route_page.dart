@@ -1,6 +1,4 @@
-import 'package:get/get.dart';
-import 'package:i_love_move/pages/splash_page/splash_page_bindings.dart';
-import 'package:i_love_move/pages/splash_page/splash_page_page.dart';
+import 'imports_custom.dart';
 
 class RoutePage {
   static List<GetPage> appRoute = [
