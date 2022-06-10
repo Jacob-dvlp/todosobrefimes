@@ -1,8 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 class HomePageController extends GetxController {
-   List<Widget> children = [];
-   double? initAnimationOffset;
-   double? cardHeight;
+  List img = [
+    'assets/carousel/img1.jpg',
+    'assets/carousel/img2.jpg',
+    'assets/carousel/img3.jpg',
+    'assets/carousel/img4.webp'
+  ];
 }
