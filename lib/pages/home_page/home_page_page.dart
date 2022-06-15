@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 
 import '../widgets/navigator_bar.dart';
 import 'home_page_controller.dart';
+import 'widgets/body_home_footer_list.dart';
 import 'widgets/body_home_listview.dart';
 import 'widgets/body_home_page_swiper.dart';
 
@@ -20,8 +21,9 @@ class HomePagePage extends GetView<HomePageController> {
           body: SafeArea(
             child: Stack(
               children: [
-                bodyHomePage(controller),
-                bodyHomeListview(controller)
+                bodyHomePage(controller, context),
+                bodyHomeListview(controller, context),
+                bodyHomeFooterList(context)
               ],
             ),
           ),
