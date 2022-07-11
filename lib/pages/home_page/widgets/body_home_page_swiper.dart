@@ -52,7 +52,7 @@ Widget bodyHomePage(controller, context) {
       Padding(
         padding: const EdgeInsets.all(8.0),
         child: SizedBox(
-          height: 300,
+          height: 250,
           width: MediaQuery.of(context).size.width,
           child: Swiper(
             itemBuilder: (BuildContext context, int index) {

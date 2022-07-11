@@ -4,7 +4,7 @@ import '../../../constants/assets_img.dart';
 
 Widget bodyHomeFooterList(context) {
   return Positioned(
-    top: 445,
+    top: 345,
     left: 10,
     right: 10,
     child: SizedBox(
@@ -27,6 +27,7 @@ Widget bodyHomeFooterList(context) {
               height: MediaQuery.of(context).size.height / 3,
               width: MediaQuery.of(context).size.width,
               child: ListView.builder(
+                
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
                   return Padding(
@@ -162,7 +163,7 @@ Widget bodyHomeFooterList(context) {
                               Container(
                                 width: MediaQuery.of(context).size.width / 2,
                                 height:
-                                    MediaQuery.of(context).size.height / 3.8,
+                                    MediaQuery.of(context).size.height / 3.2,
                                 child: Image.asset(
                                   splashScreen,
                                   fit: BoxFit.cover,

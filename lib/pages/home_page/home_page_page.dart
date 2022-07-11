@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import '../widgets/navigator_bar.dart';
 import 'home_page_controller.dart';
 import 'widgets/body_home_footer_list.dart';
-import 'widgets/body_home_listview.dart';
 import 'widgets/body_home_page_swiper.dart';
 
 class HomePagePage extends GetView<HomePageController> {
@@ -13,7 +12,7 @@ class HomePagePage extends GetView<HomePageController> {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<HomePageController>(
-      init: HomePageController(),
+      init: HomePageController(Get.find()),
       builder: (_) {
         return Scaffold(
           bottomNavigationBar: navigatorCustomAppWidget(context),
@@ -22,7 +21,7 @@ class HomePagePage extends GetView<HomePageController> {
             child: Stack(
               children: [
                 bodyHomePage(controller, context),
-                bodyHomeListview(controller, context),
+                // bodyHomeListview(controller, context),
                 bodyHomeFooterList(context)
               ],
             ),

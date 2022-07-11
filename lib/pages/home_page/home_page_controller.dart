@@ -1,6 +1,8 @@
 import 'package:get/get.dart';
+import 'package:i_love_move/infra/providers/move_provider.dart';
 
 class HomePageController extends GetxController {
+  final MoveProvider moveProvider;
   int index = 0;
   List img = [
     'assets/carousel/img1.jpg',
@@ -9,6 +11,14 @@ class HomePageController extends GetxController {
     'assets/carousel/img4.webp',
     'assets/carousel/img5.webp'
   ].obs;
+
+  HomePageController(this.moveProvider);
+
+  @override
+  void onInit() {
+    moveProvider.getMovePopular();
+    super.onInit();
+  }
 
   escolher(int value) {
     switch (value) {
