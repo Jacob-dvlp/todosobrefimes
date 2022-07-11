@@ -1,8 +1,10 @@
 import 'package:get/get.dart';
+import 'package:i_love_move/infra/models/response_move.dart';
 import 'package:i_love_move/infra/providers/move_provider.dart';
 
 class HomePageController extends GetxController {
   final MoveProvider moveProvider;
+  List<Result> move = [];
   int index = 0;
   List img = [
     'assets/carousel/img1.jpg',
@@ -15,8 +17,9 @@ class HomePageController extends GetxController {
   HomePageController(this.moveProvider);
 
   @override
-  void onInit() {
-    moveProvider.getMovePopular();
+  void onInit() async {
+    move = await moveProvider.getMovePopular();
+    print(move.length);
     super.onInit();
   }
 
