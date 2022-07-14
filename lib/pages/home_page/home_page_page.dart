@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:i_love_move/pages/home_page/widgets/body_home_footer_list.dart';
+import 'package:i_love_move/pages/home_page/widgets/body_home_page_swiper.dart';
 
 import '../widgets/navigator_bar.dart';
 import 'home_page_controller.dart';
@@ -18,11 +18,7 @@ class HomePagePage extends GetView<HomePageController> {
           backgroundColor: const Color(0XFF1e2746),
           body: SafeArea(
             child: Stack(
-              children: [
-                //   BodyHomePageSwiper(),
-                // bodyHomeListview(controller, context),
-                BodyHomeFooterList()
-              ],
+              children: [BodyHomePageSwiper()],
             ),
           ),
         );

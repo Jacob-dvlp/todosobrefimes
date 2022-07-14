@@ -12,6 +12,6 @@ class RoutePage {
     GetPage(
         name: HomePagePage.routeName,
         page: () => const HomePagePage(),
-        binding: HomePageBindings())
+        binding: HomePageBindings()),
   ];
 }
