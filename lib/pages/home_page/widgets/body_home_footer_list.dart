@@ -1,10 +1,12 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:i_love_move/infra/app_util/urls_api.dart';
 import 'package:i_love_move/infra/models/response_move.dart';
 import 'package:i_love_move/pages/home_page/home_page_controller.dart';
 import 'package:i_love_move/routes/imports_custom.dart';
+import 'package:skeletons/skeletons.dart';
 
-class BodyHomeFooterList extends StatelessWidget {
+class BodyHomeFooterList extends GetView<HomePageController> {
   const BodyHomeFooterList({Key? key}) : super(key: key);
 
   @override
@@ -12,275 +14,109 @@ class BodyHomeFooterList extends StatelessWidget {
     return GetBuilder<HomePageController>(
         init: HomePageController(Get.find()),
         builder: (_) {
-          return Positioned(
-            top: 345,
-            left: 10,
-            right: 10,
+          return Skeleton(
+            isLoading: controller.isloading,
+            skeleton: SkeletonListView(),
             child: SizedBox(
-                height: MediaQuery.of(context).size.height / 3,
+                height: MediaQuery.of(context).size.height,
                 width: MediaQuery.of(context).size.width,
-                child: ListView(
-                  shrinkWrap: true,
-                  children: [
-                    Text(
-                      'Popular',
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                          fontSize: 20),
-                    ),
-                    SizedBox(
-                      height: 05,
-                    ),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height / 3,
-                      width: MediaQuery.of(context).size.width,
-                      child: ListView.builder(
-                        itemCount: _.move.length,
-                        scrollDirection: Axis.horizontal,
-                        itemBuilder: (context, index) {
-                          final Result model = _.move[index];
-                          return Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: SizedBox(
-                              child: Column(
-                                children: [
-                                  Stack(
-                                    children: [
-                                      Container(
+                child: SizedBox(
+                  height: MediaQuery.of(context).size.height,
+                  width: MediaQuery.of(context).size.width,
+                  child: ListView.builder(
+                    itemCount: _.move.length,
+                    itemBuilder: (context, index) {
+                      final Result model = _.move[index];
+                      return Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: SizedBox(
+                          child: Card(
+                            clipBehavior: Clip.hardEdge,
+                            elevation: 20,
+                            child: Column(
+                              children: [
+                                Stack(
+                                  children: [
+                                    Container(
+                                      width: MediaQuery.of(context).size.width,
+                                      height:
+                                          MediaQuery.of(context).size.height /
+                                              3.2,
+                                      child: CachedNetworkImage(
+                                        fit: BoxFit.cover,
+                                        imageUrl:
+                                            '${BaseURL.img}${model.posterPath}',
+                                        placeholder: (context, url) =>
+                                            Center(child: CircularProgressIndicator()),
+                                        errorWidget: (context, url, error) =>
+                                            Icon(Icons.error),
+                                      ),
+                                    ),
+                                    Positioned(
+                                      bottom: 0,
+                                      child: Container(
                                         width:
-                                            MediaQuery.of(context).size.width /
-                                                2,
-                                        height:
-                                            MediaQuery.of(context).size.height /
-                                                3.2,
-                                        child: Image.network(
-                                          '${BaseURL.img}${model.posterPath}',
-                                          fit: BoxFit.cover,
-                                        ),
+                                            MediaQuery.of(context).size.width,
+                                        height: 35,
+                                        color:
+                                            Color(0XFF1e2746).withOpacity(0.5),
                                       ),
-                                      Positioned(
-                                        bottom: 0,
-                                        child: Container(
-                                          width: 200,
-                                          height: 35,
-                                          color: Color(0XFF1e2746)
-                                              .withOpacity(0.5),
-                                        ),
-                                      ),
-                                      Positioned(
-                                        bottom: 04,
-                                        left: 05,
-                                        child: Container(
-                                          child: Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Text(
-                                                model.name!,
-                                                style: TextStyle(
+                                    ),
+                                    Positioned(
+                                      bottom: 02,
+                                      left: 05,
+                                      child: Container(
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              model.name!,
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Colors.white,
+                                                  fontSize: 15),
+                                            ),
+                                            Row(
+                                              children: [
+                                                Icon(
+                                                  Icons.star,
+                                                  color: Colors.yellow,
+                                                  size: 15,
+                                                ),
+                                                SizedBox(
+                                                  width: 05,
+                                                ),
+                                                Text(
+                                                  '${model.voteAverage}',
+                                                  style: TextStyle(
                                                     fontWeight: FontWeight.bold,
-                                                    color: Colors.white,
-                                                    fontSize: 15),
-                                              ),
-                                              Row(
-                                                children: [
-                                                  Icon(
-                                                    Icons.star,
                                                     color: Colors.yellow,
-                                                    size: 12,
                                                   ),
-                                                  SizedBox(
-                                                    width: 02,
-                                                  ),
-                                                  Icon(
-                                                    Icons.star,
-                                                    color: Colors.yellow,
-                                                    size: 12,
-                                                  ),
-                                                  SizedBox(
-                                                    width: 02,
-                                                  ),
-                                                  Icon(
-                                                    Icons.star,
-                                                    color: Colors.yellow,
-                                                    size: 12,
-                                                  ),
-                                                  SizedBox(
-                                                    width: 02,
-                                                  ),
-                                                  Icon(
-                                                    Icons.star,
-                                                    color: Colors.yellow,
-                                                    size: 12,
-                                                  ),
-                                                  SizedBox(
-                                                    width: 02,
-                                                  ),
-                                                  Icon(
-                                                    Icons.star,
-                                                    color: Colors.yellow,
-                                                    size: 12,
-                                                  ),
-                                                  SizedBox(
-                                                    width: 05,
-                                                  ),
-                                                  Text(
-                                                    model.voteAverage
-                                                        .toString(),
-                                                    style: TextStyle(
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                      color: Colors.yellow,
-                                                    ),
-                                                  )
-                                                ],
-                                              )
-                                            ],
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            ),
-                          );
-                        },
-                        shrinkWrap: true,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    Text(
-                      'Popular',
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                          fontSize: 20),
-                    ),
-                    SizedBox(
-                      height: 05,
-                    ),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height / 3,
-                      width: MediaQuery.of(context).size.width,
-                      child: ListView.builder(
-                        itemCount: _.move.length,
-                        scrollDirection: Axis.horizontal,
-                        itemBuilder: (context, index) {
-                          final Result model = _.move[index];
-                          return Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: SizedBox(
-                              child: Column(
-                                children: [
-                                  Stack(
-                                    children: [
-                                      Container(
-                                        width:
-                                            MediaQuery.of(context).size.width /
-                                                2,
-                                        height:
-                                            MediaQuery.of(context).size.height /
-                                                3.2,
-                                        child: Image.network(
-                                          '${BaseURL.img}${model.posterPath}',
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
-                                      Positioned(
-                                        bottom: 0,
-                                        child: Container(
-                                          width: 200,
-                                          height: 35,
-                                          color: Color(0XFF1e2746)
-                                              .withOpacity(0.5),
-                                        ),
-                                      ),
-                                      Positioned(
-                                        bottom: 04,
-                                        left: 05,
-                                        child: Container(
-                                          child: Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Text(
-                                                'Guerra infinita',
-                                                style: TextStyle(
+                                                ),
+                                                Text(
+                                                  ' TMDB',
+                                                  style: TextStyle(
                                                     fontWeight: FontWeight.bold,
-                                                    color: Colors.white,
-                                                    fontSize: 15),
-                                              ),
-                                              Row(
-                                                children: [
-                                                  Icon(
-                                                    Icons.star,
                                                     color: Colors.yellow,
-                                                    size: 12,
                                                   ),
-                                                  SizedBox(
-                                                    width: 02,
-                                                  ),
-                                                  Icon(
-                                                    Icons.star,
-                                                    color: Colors.yellow,
-                                                    size: 12,
-                                                  ),
-                                                  SizedBox(
-                                                    width: 02,
-                                                  ),
-                                                  Icon(
-                                                    Icons.star,
-                                                    color: Colors.yellow,
-                                                    size: 12,
-                                                  ),
-                                                  SizedBox(
-                                                    width: 02,
-                                                  ),
-                                                  Icon(
-                                                    Icons.star,
-                                                    color: Colors.yellow,
-                                                    size: 12,
-                                                  ),
-                                                  SizedBox(
-                                                    width: 02,
-                                                  ),
-                                                  Icon(
-                                                    Icons.star,
-                                                    color: Colors.yellow,
-                                                    size: 12,
-                                                  ),
-                                                  SizedBox(
-                                                    width: 05,
-                                                  ),
-                                                  Text(
-                                                    '8.4',
-                                                    style: TextStyle(
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                      color: Colors.yellow,
-                                                    ),
-                                                  )
-                                                ],
-                                              )
-                                            ],
-                                          ),
+                                                )
+                                              ],
+                                            )
+                                          ],
                                         ),
                                       ),
-                                    ],
-                                  ),
-                                ],
-                              ),
+                                    ),
+                                  ],
+                                ),
+                              ],
                             ),
-                          );
-                        },
-                        shrinkWrap: true,
-                      ),
-                    ),
-                  ],
+                          ),
+                        ),
+                      );
+                    },
+                    shrinkWrap: true,
+                  ),
                 )),
           );
         });

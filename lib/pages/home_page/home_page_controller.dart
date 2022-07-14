@@ -5,6 +5,7 @@ import 'package:i_love_move/infra/providers/move_provider.dart';
 class HomePageController extends GetxController {
   final MoveProvider moveProvider;
   List<Result> move = [];
+  bool isloading = false;
   int index = 0;
   List img = [
     'assets/carousel/img1.jpg',
@@ -16,10 +17,20 @@ class HomePageController extends GetxController {
 
   HomePageController(this.moveProvider);
 
+  Future getMove() async {
+    isloadingData(true);
+    move = await moveProvider.getMove();
+    isloadingData(false);
+  }
+
+  isloadingData(bool value) {
+    isloading = value;
+    update();
+  }
+
   @override
   void onInit() async {
-    move = await moveProvider.getMovePopular();
-    print(move.length);
+    getMove();
     super.onInit();
   }
 

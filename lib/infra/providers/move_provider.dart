@@ -5,7 +5,7 @@ class MoveProvider {
   final MoveRepository _moveRepository;
 
   MoveProvider(this._moveRepository);
-  Future<List<Result>> getMovePopular() async {
+  Future<List<Result>> getMove() async {
     return _moveRepository.getMovePopular();
   }
 }
