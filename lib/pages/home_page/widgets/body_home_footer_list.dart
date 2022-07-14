@@ -46,8 +46,8 @@ class BodyHomeFooterList extends GetView<HomePageController> {
                                         fit: BoxFit.cover,
                                         imageUrl:
                                             '${BaseURL.img}${model.posterPath}',
-                                        placeholder: (context, url) =>
-                                            Center(child: CircularProgressIndicator()),
+                                        placeholder: (context, url) => Center(
+                                            child: CircularProgressIndicator()),
                                         errorWidget: (context, url, error) =>
                                             Icon(Icons.error),
                                       ),
@@ -78,6 +78,9 @@ class BodyHomeFooterList extends GetView<HomePageController> {
                                                   fontSize: 15),
                                             ),
                                             Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
                                               children: [
                                                 Icon(
                                                   Icons.star,
@@ -100,7 +103,25 @@ class BodyHomeFooterList extends GetView<HomePageController> {
                                                     fontWeight: FontWeight.bold,
                                                     color: Colors.yellow,
                                                   ),
-                                                )
+                                                ),
+                                                SizedBox(
+                                                  width: 220,
+                                                ),
+                                                Icon(
+                                                  Icons.star,
+                                                  color: Colors.yellow,
+                                                  size: 15,
+                                                ),
+                                                Text(
+                                                  '${model.voteCount}',
+                                                  style: TextStyle(
+                                                    fontWeight: FontWeight.bold,
+                                                    color: Colors.yellow,
+                                                  ),
+                                                ),
+                                                SizedBox(
+                                                  width: 05,
+                                                ),
                                               ],
                                             )
                                           ],
