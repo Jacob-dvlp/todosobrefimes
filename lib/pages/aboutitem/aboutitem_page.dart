@@ -15,6 +15,7 @@ class AboutitemPage extends StatefulWidget {
 }
 
 class _AboutitemPageState extends State<AboutitemPage> {
+  final String about = "Sobre";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,6 +40,40 @@ class _AboutitemPageState extends State<AboutitemPage> {
                         errorWidget: (context, url, error) => Icon(Icons.error),
                       ),
                     ),
+                  ),
+                ),
+                Positioned(
+                  top: 80,
+                  child: Container(
+                    decoration: BoxDecoration(
+                        color: Color(0XFF1e2746),
+                        borderRadius: BorderRadius.only(
+                          topRight: Radius.circular(30),
+                          bottomRight: Radius.circular(30),
+                        )),
+                    width: 50,
+                    height: MediaQuery.of(context).size.height / 2,
+                    child: SizedBox(
+                        child: Wrap(
+                      runAlignment: WrapAlignment.center,
+                      crossAxisAlignment: WrapCrossAlignment.center,
+                      spacing: 0,
+                      runSpacing: 0,
+                      direction: Axis.vertical,
+                      alignment: WrapAlignment.spaceAround,
+                      children: about
+                          .split("")
+                          .map(
+                            (string) => Text(
+                              string.toUpperCase(),
+                              style: TextStyle(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.amber),
+                            ),
+                          )
+                          .toList(),
+                    )),
                   ),
                 ),
                 Padding(
