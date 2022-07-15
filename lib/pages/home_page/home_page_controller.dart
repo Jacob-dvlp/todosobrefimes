@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:i_love_move/infra/models/response_move.dart';
+import 'package:i_love_move/infra/models/api_response/response_move.dart';
 import 'package:i_love_move/infra/providers/move_provider.dart';
 
 class HomePageController extends GetxController {

@@ -41,7 +41,9 @@ dependencies:
   card_swiper: ^2.0.4
   floating_bottom_navigation_bar: ^1.5.2
   http: ^0.13.4
-  cached_network_image: ^3.2.1
+  cached_network_image:
+  animated_text_kit: 
+  
   skeletons: ^0.0.3
   skeleton_text: ^3.0.0
 dev_dependencies:

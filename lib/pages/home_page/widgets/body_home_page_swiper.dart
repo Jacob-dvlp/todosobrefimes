@@ -1,7 +1,8 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:i_love_move/infra/app_util/urls_api.dart';
-import 'package:i_love_move/infra/models/response_move.dart';
+import 'package:i_love_move/infra/models/api_response/response_move.dart';
 import 'package:i_love_move/pages/aboutitem/aboutitem_page.dart';
 import 'package:i_love_move/pages/home_page/home_page_controller.dart';
 import 'package:i_love_move/routes/imports_custom.dart';
@@ -46,13 +47,15 @@ class BodyHomePageSwiper extends GetView<HomePageController> {
                                   children: [
                                     Stack(
                                       children: [
-                                        Container(
+                                        AnimatedContainer(
                                           width:
                                               MediaQuery.of(context).size.width,
                                           height: MediaQuery.of(context)
                                                   .size
                                                   .height /
                                               2,
+                                          duration: Duration(seconds: 5),
+                                          curve: Curves.easeInCubic,
                                           child: CachedNetworkImage(
                                             fit: BoxFit.fill,
                                             imageUrl:
@@ -84,14 +87,22 @@ class BodyHomePageSwiper extends GetView<HomePageController> {
                                               crossAxisAlignment:
                                                   CrossAxisAlignment.start,
                                               children: [
-                                                Text(
-                                                  model.name!,
+                                                SizedBox(
+                                                    child: DefaultTextStyle(
                                                   style: TextStyle(
                                                       fontWeight:
                                                           FontWeight.bold,
                                                       color: Colors.white,
                                                       fontSize: 15),
-                                                ),
+                                                  child: AnimatedTextKit(
+                                                    animatedTexts: [
+                                                      TypewriterAnimatedText(
+                                                          model.name!,
+                                                          speed: Duration(
+                                                              milliseconds: 20)),
+                                                    ],
+                                                  ),
+                                                )),
                                                 Row(
                                                   mainAxisAlignment:
                                                       MainAxisAlignment
