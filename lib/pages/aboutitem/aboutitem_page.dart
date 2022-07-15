@@ -1,3 +1,4 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:i_love_move/infra/app_util/urls_api.dart';
@@ -41,12 +42,12 @@ class _AboutitemPageState extends State<AboutitemPage> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 546),
+                  padding: const EdgeInsets.only(top: 540),
                   child: Stack(
                     children: [
                       Container(
                         width: MediaQuery.of(context).size.width,
-                        height: MediaQuery.of(context).size.height / 3.2,
+                        height: MediaQuery.of(context).size.height / 3.1,
                         decoration: BoxDecoration(
                           color: Color(0XFF1e2746),
                           borderRadius: BorderRadius.only(
@@ -54,22 +55,124 @@ class _AboutitemPageState extends State<AboutitemPage> {
                               topRight: Radius.circular(40)),
                         ),
                         child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Padding(
-                              padding: const EdgeInsets.only(top: 130),
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: SizedBox(
-                                  child: Text(
-                                    widget.model.overview!,
-                                    textAlign: TextAlign.justify,
+                              padding: const EdgeInsets.all(17.0),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    Icons.star,
+                                    color: Colors.white,
+                                    size: 15,
+                                  ),
+                                  SizedBox(
+                                    width: 5,
+                                  ),
+                                  Text(
+                                    '${widget.model.voteAverage}',
                                     style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.yellow,
+                                    ),
+                                  ),
+                                  Text(
+                                    ' TMDB',
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.yellow,
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 20),
+                                    child: Row(
+                                      children: [
+                                        SizedBox(
+                                          width: 5,
+                                        ),
+                                        Text(
+                                          'Língua:',
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                        Text(
+                                          ' ${widget.model.originalLanguage!.toUpperCase()}',
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.yellow,
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          width: 5,
+                                        ),
+                                        Text(
+                                          'País:',
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                        Text(
+                                          ' ${widget.model.originCountry}',
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.yellow,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                left: 20,
+                              ),
+                              child: Row(
+                                children: [
+                                  Text(
+                                    'Total de votos:',
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
                                       color: Colors.white,
                                     ),
                                   ),
+                                  SizedBox(
+                                    width: 5,
+                                  ),
+                                  Text(
+                                    '${widget.model.voteCount}',
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.yellow,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 05, left: 20),
+                              child: Padding(
+                                padding: const EdgeInsets.all(0.0),
+                                child: SizedBox(
+                                  child: DefaultTextStyle(
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                    ),
+                                    textAlign: TextAlign.center,
+                                    child: AnimatedTextKit(animatedTexts: [
+                                      TypewriterAnimatedText(
+                                        widget.model.overview!,
+                                      ),
+                                    ]),
+                                  ),
                                 ),
                               ),
-                            )
+                            ),
                           ],
                         ),
                       ),
