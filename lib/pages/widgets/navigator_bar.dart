@@ -19,7 +19,7 @@ Widget navigatorCustomAppWidget(BuildContext context) {
             items: [
               FloatingNavbarItem(
                   icon: Icons.play_circle_rounded, title: 'Home'),
-              FloatingNavbarItem(icon: Icons.list, title: 'Serviços'),
+              FloatingNavbarItem(icon: Icons.tv, title: 'Tv'),
               FloatingNavbarItem(icon: Icons.create, title: 'Criar'),
               FloatingNavbarItem(icon: Icons.credit_card_outlined, title: 'Tv'),
             ],

@@ -1,5 +1,7 @@
 import 'package:i_love_move/pages/home_page/home_page_bindings.dart';
 import 'package:i_love_move/pages/home_page/home_page_page.dart';
+import 'package:i_love_move/pages/tv/tv_bindings.dart';
+import 'package:i_love_move/pages/tv/tv_page.dart';
 
 import 'imports_custom.dart';
 
@@ -13,5 +15,9 @@ class RoutePage {
         name: HomePagePage.routeName,
         page: () => const HomePagePage(),
         binding: HomePageBindings()),
+    GetPage(
+        name: TvPage.routeName,
+        page: () => const TvPage(),
+        binding: TvBindings()),
   ];
 }

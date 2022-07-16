@@ -1,6 +1,8 @@
 import 'package:get/get.dart';
 import 'package:i_love_move/infra/models/api_response/response_move.dart';
 import 'package:i_love_move/infra/providers/move_provider.dart';
+import 'package:i_love_move/pages/home_page/home_page_page.dart';
+import 'package:i_love_move/pages/tv/tv_page.dart';
 
 class HomePageController extends GetxController {
   final MoveProvider moveProvider;
@@ -37,12 +39,10 @@ class HomePageController extends GetxController {
   escolher(int value) {
     switch (value) {
       case 0:
-        //   Get.offNamed(HomePageClientePage.routeName);
-
+        Get.toNamed(HomePagePage.routeName);
         break;
       case 1:
-        //  Get.toNamed(MeusServicoAtivosPage.routeName);
-
+        Get.toNamed(TvPage.routeName);
         break;
       case 2:
         //   Get.toNamed(CriarServicosPage.routeName);
