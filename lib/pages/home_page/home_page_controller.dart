@@ -42,10 +42,10 @@ class HomePageController extends GetxController {
         Get.toNamed(HomePagePage.routeName);
         break;
       case 1:
-        Get.toNamed(TvPage.routeName);
         break;
       case 2:
         //   Get.toNamed(CriarServicosPage.routeName);
+        Get.toNamed(TvPage.routeName);
 
         break;
       case 3:

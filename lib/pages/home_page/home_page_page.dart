@@ -17,9 +17,7 @@ class HomePagePage extends GetView<HomePageController> {
           bottomNavigationBar: navigatorCustomAppWidget(context),
           backgroundColor: const Color(0XFF1e2746),
           body: SafeArea(
-            child: Stack(
-              children: [BodyHomePageSwiper()],
-            ),
+            child: BodyHomePageSwiper(),
           ),
         );
       },

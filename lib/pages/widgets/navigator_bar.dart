@@ -15,13 +15,12 @@ Widget navigatorCustomAppWidget(BuildContext context) {
             onTap: (value) => controller.escolher(value),
             currentIndex: controller.index,
             selectedItemColor: const Color(0xFF2356A3),
-            unselectedItemColor: Colors.white,
+            unselectedItemColor: Colors.yellow,
             items: [
               FloatingNavbarItem(
-                  icon: Icons.play_circle_rounded, title: 'Home'),
+                  icon: Icons.play_circle_rounded, title: 'Move'),
+              FloatingNavbarItem(icon: Icons.create, customWidget: Container()),
               FloatingNavbarItem(icon: Icons.tv, title: 'Tv'),
-              FloatingNavbarItem(icon: Icons.create, title: 'Criar'),
-              FloatingNavbarItem(icon: Icons.credit_card_outlined, title: 'Tv'),
             ],
           ),
         );

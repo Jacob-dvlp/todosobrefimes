@@ -17,13 +17,13 @@ class ResponseModelTv {
     });
 
     int? page;
-    List<Result>? results;
+    List<ResultTv>? results;
     int ?totalPages;
     int ?totalResults;
 
     factory ResponseModelTv.fromJson(Map<String, dynamic> json) => ResponseModelTv(
         page: json["page"],
-        results: List<Result>.from(json["results"].map((x) => Result.fromJson(x))),
+        results: List<ResultTv>.from(json["results"].map((x) => ResultTv.fromJson(x))),
         totalPages: json["total_pages"],
         totalResults: json["total_results"],
     );
@@ -36,8 +36,8 @@ class ResponseModelTv {
     };
 }
 
-class Result {
-    Result({
+class ResultTv {
+    ResultTv({
         this.backdropPath,
         this.firstAirDate,
         this.genreIds,
@@ -67,7 +67,7 @@ class Result {
     double ?voteAverage;
     int ?voteCount;
 
-    factory Result.fromJson(Map<String, dynamic> json) => Result(
+    factory ResultTv.fromJson(Map<String, dynamic> json) => ResultTv(
         backdropPath: json["backdrop_path"] == null ? null : json["backdrop_path"],
         firstAirDate: DateTime.parse(json["first_air_date"]),
         genreIds: List<int>.from(json["genre_ids"].map((x) => x)),
